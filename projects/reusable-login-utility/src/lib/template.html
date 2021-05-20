@@ -1,0 +1,29 @@
+
+<div class="container">
+    <form [formGroup] = "userForm" (ngSubmit)="sendLoginDetails()" >
+        <input type="radio" name="tab" id="signin" checked="checked"/>
+        <input type="radio" name="tab" id="register"/>
+        <div class="pages">
+          <div class="page">
+            <div class="input">
+              <div class="title"> USERNAME</div>
+              <input formControlName="username" class="text" type="text" placeholder="Username"/>
+              <p class="errorText" *ngIf="Controls?.username.touched && Controls?.username.errors?.required">
+                  Username is Required...!
+              </p>
+            </div>
+            <div class="input">
+              <div class="title"> PASSWORD</div>
+              <input formControlName="password" class="text" type="password" placeholder="Password"/>
+              <p class="errorText" *ngIf="Controls?.password.touched && Controls?.password.errors?.required">
+                  Password is Required...!
+              </p>
+            </div>
+            <div class="input">
+              <input type="submit" value="Login" [disabled]="userForm.invalid"/>
+            </div>
+          </div>
+        </div>
+</form>
+   
+  </div>
